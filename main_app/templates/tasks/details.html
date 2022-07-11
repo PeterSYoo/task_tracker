@@ -13,6 +13,12 @@
     <span class="task-details--card-name">Name: {{ tasks.name }}</span><br>
     <span class="task-details--card-description">Description: {{ tasks.description }}</span>
   </div>
+
+  <div class="card-action">
+    <a href="{% url 'tasks_update' tasks.id %}">Edit</a>
+    <a href="{% url 'tasks_delete' tasks.id %}">Delete</a>
+  </div>
+
 </div>
 
 {% endblock %}

@@ -26,11 +26,14 @@
       <a href="{% url 'home' %}">Task Tracker</a>
     </div>
     <div class="header-nav">
+      {% if user.is_authenticated %}
       <div class="header-nav--tasks-create"><a href="{% url 'tasks_create' %}">Add a Task</a></div>
       <div class="header-nav--tasks"><a href="{% url 'tasks_index' %}">View My Tasks</a></div>
-      <div class="header-nav--logout">Log Out</div>
-      <div class="header-nav--signup">Sign Up</div>
-      <div class="header-nav--login">Log In</div>
+      <div class="header-nav--logout"><a href="{% url 'logout' %}">Log Out</a></div>
+      {% else %}
+      <div class="header-nav--signup"><a href="{% url 'signup' %}">Sign Up</a></div>
+      <div class="header-nav--login"><a href="{% url 'login' %}">Log In</a></div>
+      {% endif %}
     </div>
   </header>
 

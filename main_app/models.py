@@ -8,7 +8,7 @@ class Task(models.Model):
   name = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
 
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  # user = models.ForeignKey(User, on_delete=models.CASCADE)
   users = models.ManyToManyField(User, related_name='tasks_set')
 
   def __str__(self):
