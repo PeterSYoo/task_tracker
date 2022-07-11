@@ -21,3 +21,20 @@
 .task-details--card-name {
   font-size: 1.5em;
 }
+
+.task-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "individual group";
+  gap: 100px;
+}
+
+.task-list--individual {
+  grid-area: individual;
+}
+
+.task-list--group {
+  grid-area: group;
+}

@@ -8,24 +8,33 @@
 <h1>Task List</h1>
 
 <div class="task-list">
-{% for task in users_tasks %}
-  <a href="{% url 'detail' task.id %}">
-    <div class="task-list--card">
-      <span class="task-list--card-name">{{ task.name }}</span><br>
-      <span class="task-list--card-description">Description: {{ task.description }}</span>
-    </div>
-  </a>
-  <br>
-{% endfor %} 
 
-{% for task in user_tasks %}
-  <a href="{% url 'detail' task.id %}">
-    <div class="task-list--card">
-      <span class="task-list--card-name">{{ task.name }}</span><br>
-      <span class="task-list--card-description">Description: {{ task.description }}</span>
-    </div>
-  </a>
-  <br>
-{% endfor %} 
+  <div class="task-list--individual">
+    Individual Tasks
+    {% for task in user_tasks %}
+      <a href="{% url 'detail' task.id %}">
+        <div class="task-list--card">
+          <span class="task-list--card-name">{{ task.name }}</span><br>
+          <span class="task-list--card-description">Description: {{ task.description }}</span>
+        </div>
+      </a>
+      <br>
+    {% endfor %} 
+  </div>
+
+  <div class="task-list--group">
+    Group Tasks
+    {% for task in users_tasks %}
+      <a href="{% url 'detail' task.id %}">
+        <div class="task-list--card">
+          <span class="task-list--card-name">{{ task.name }}</span><br>
+          <span class="task-list--card-description">Description: {{ task.description }}</span>
+        </div>
+      </a>
+      <br>
+    {% endfor %} 
+  </div>
+
+</div>
 
 {% endblock %}
