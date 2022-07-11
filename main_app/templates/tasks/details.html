@@ -1,8 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="tasks-details-wrapper">
-<h1>Tasks Details</h1>
-<hr />
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/tasks.css" %}">
+{% endblock %}
+
+<h1>Task Details</h1>
+
+<div class="task-details">
+  <div class="task-details--card">
+    <span class="task-details--card-name">Name: {{ tasks.name }}</span><br>
+    <span class="task-details--card-description">Description: {{ tasks.description }}</span>
+  </div>
 </div>
 
 {% endblock %}

@@ -14,6 +14,10 @@ def tasks_index(request):
   tasks = Task.objects.all()
   return render(request, 'tasks/index.html', { 'tasks': tasks })
 
+def tasks_detail(request, task_id):
+  tasks = Task.objects.get(id=task_id)
+  return render(request, 'tasks/details.html', { 'tasks': tasks })
+
 class TaskCreate(CreateView):
   model = Task
   fields = ['name', 'description']

@@ -1,0 +1,23 @@
+.task-list--card {
+  background-color: #ffffff;
+  padding: 25px 50px 25px 50px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.task-list--card-name {
+  font-size: 1.5em;
+}
+
+.task-details--card {
+  background-color: #ffffff;
+  padding: 25px 50px 25px 50px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.task-details--card-name {
+  font-size: 1.5em;
+}

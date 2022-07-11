@@ -1,8 +1,22 @@
 {% extends 'base.html' %} {% block content %}
+{% load static %}
 
-<div class="tasks-wrapper">
-<h1>Tasks</h1>
-<hr />
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/tasks.css" %}">
+{% endblock %}
+
+<h1>Task List</h1>
+
+<div class="task-list">
+{% for task in tasks %}
+  <a href="{% url 'detail' task.id %}">
+    <div class="task-list--card">
+      <span class="task-list--card-name">{{ task.name }}</span><br>
+      <span class="task-list--card-description">Description: {{ task.description }}</span>
+    </div>
+  </a>
+  <br>
+{% endfor %} 
 </div>
 
 {% endblock %}
