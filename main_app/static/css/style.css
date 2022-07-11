@@ -4,8 +4,67 @@
 }
 
 body {
-  background-color: rgb(227, 239, 255);
+  background-color: #F0F5F7;
   font-family: 'Inter', sans-serif;
   color: rgb(0, 0, 0);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: white;
+  padding: 25px 35px 15px 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: 2em;
+  letter-spacing: -1px;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 25px;
+  letter-spacing: -0.5px;
+  font-size: 1.15em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  flex: 1 0 auto;
+}
+
+footer {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+/* unvisited link */
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: #000000;
+}
+
+/* mouse over link */
+a:hover {
+  color: #000000;
+}
+
+/* selected link */
+a:active {
+  color: #000000;
 }
