@@ -13,8 +13,12 @@ def about(request):
   return render(request, 'about.html')
 
 def tasks_index(request):
-  tasks = Task.objects.filter(users=request.user)
-  return render(request, 'tasks/index.html', { 'tasks': tasks })
+  users_tasks = Task.objects.filter(users=request.user)
+  user_tasks = Task.objects.filter(user=request.user)
+  return render(request, 'tasks/index.html', { 
+    'users_tasks': users_tasks,
+    'user_tasks': user_tasks,
+    })
 
 def tasks_detail(request, task_id):
   tasks = Task.objects.get(id=task_id)
