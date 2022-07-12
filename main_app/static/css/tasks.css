@@ -1,6 +1,18 @@
+.task-list--individual-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4em;
+}
+
+.task-list--group-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4em;
+}
+
 .task-list--card {
   background-color: #ffffff;
-  padding: 25px 50px 25px 50px;
+  padding: 25px 100px 25px 100px;
   border-radius: 15px;
   border: 1px solid black;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
@@ -20,6 +32,45 @@
 
 .task-details--card-name {
   font-size: 1.5em;
+}
+
+.task-details--edit-delete-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+.task--new {
+  background-color: #ffffff;
+  padding: 25px 75px 25px 75px;
+  border-radius: 15px;
+  border: 1px solid black;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.task--new-timer {
+  font-size: 2em;
+}
+
+.dots-vertical {
+  margin-left: 10px;
+  margin-right: 15px;
+  margin-bottom: -7px;
+}
+
+.timer-start {
+  padding: 10px 20px 10px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 
 .task-list {
