@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import Task
 
@@ -10,9 +12,7 @@ from .models import Task
 def home(request):
   return render(request, 'home.html')
 
-def about(request):
-  return render(request, 'about.html')
-
+@login_required
 def tasks_index(request):
   users_tasks = Task.objects.filter(users=request.user)
   user_tasks = Task.objects.filter(user=request.user)
@@ -21,6 +21,7 @@ def tasks_index(request):
     'user_tasks': user_tasks,
     })
 
+@login_required
 def tasks_detail(request, task_id):
   tasks = Task.objects.get(id=task_id)
   users = tasks.users.all()
@@ -34,6 +35,11 @@ def tasks_detail(request, task_id):
     'user': user,
     'add_users': users_task_doesnt_have,
     })
+
+@login_required
+def assoc_users(request, task_id, users_id):
+  Task.objects.get(id=task_id).users.add(users_id)
+  return redirect('detail', task_id=task_id)
 
 def signup(request):
   error_message = ''
@@ -54,7 +60,7 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class TaskCreate(CreateView):
+class TaskCreate(LoginRequiredMixin, CreateView):
   model = Task
   fields = ['name', 'description']
   success_url = '/tasks/'
@@ -63,10 +69,10 @@ class TaskCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class TaskUpdate(UpdateView):
+class TaskUpdate(LoginRequiredMixin, UpdateView):
   model = Task
   fields = ['name', 'description']
 
-class TaskDelete(DeleteView):
+class TaskDelete(LoginRequiredMixin, DeleteView):
   model = Task
   success_url = '/tasks/'

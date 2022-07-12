@@ -7,7 +7,11 @@
 }
 
 .task-list--card-name {
-  font-size: 1.5em;
+  font-size: 1.25em;
+}
+
+.task-list--card-description {
+  font-size: 1.25em;
 }
 
 .task-details--card {
@@ -25,8 +29,8 @@
 .task-details--edit-delete-wrapper {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding-top: 25px;
+  gap: 25px;
 }
 
 .task-details--edit-btn {

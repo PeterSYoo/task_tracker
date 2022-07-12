@@ -27,7 +27,7 @@
       <a href="{% url 'home' %}">Task Tracker</a>
     </div>
     <div class="header-nav">
-      {% if user.is_authenticated %}
+      {% if request.user.is_authenticated %}
       <div class="header-nav--tasks-create"><a href="{% url 'tasks_create' %}">Add a Task</a></div>
       <div class="header-nav--tasks"><a href="{% url 'tasks_index' %}">View My Tasks</a></div>
       <div class="header-nav--logout"><a href="{% url 'logout' %}">Log Out</a></div>

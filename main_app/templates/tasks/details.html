@@ -15,38 +15,35 @@
     <span class="task-details--card-name">Name: {{ tasks.name }}</span><br>
     <span class="task-details--card-description">Description: {{ tasks.description }}</span>
 
-    <div class="task-details--edit-delete-wrapper">
-      <div class="task-details--edit">
-        <a href="{% url 'tasks_update' tasks.id %}">
-          <input class="task-details--edit-btn" type="button" value="EDIT"></input>
-        </a>
-      </div>
-      <div class="task-details--delete">
-        <a href="{% url 'tasks_delete' tasks.id %}">
-          <input class="task-details--delete-btn" type="button" value="DELETE"></input>
-        </a>
-      </div>
-    </div>
-    <br>
+
+  <div class="row">
     <div class="task-details--user">
-      User: {{ tasks.user }}
-    </div>
-    <br>
-    <div class="task-details--users">
-      Users:
-      {% for username in users %}
-        {{ username }}
-      {% endfor %}
-    </div>
-    <div class="task-details--users">
-      All users:
-      {% for username in user %}
-        {{ username }}
-      {% endfor %}
+      
     </div>
 
+    <div class="task-details--users">
+
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col s6">
+        <h5>{{ tasks.name }}'s Users</h5>
+        {% if tasks.users.count %} {% for users in tasks.users.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              {{ users }}
+            </span>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <h5>No Users :(</h5>
+        {% endif %}
+      </div>
+
     <div class="col s6">
-      <h3>Available Users</h3>
+      <h5>Available Users</h5>
       {% if add_users.count %}
         {% for users in add_users.all %}
           <div class="card">
@@ -56,7 +53,7 @@
               </span>
             </div>
             <div class="card-action">
-              <form action="" method="post">
+              <form action="{% url 'assoc_users' tasks.id users.id %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn">Add</button>
               </form>
@@ -67,6 +64,21 @@
         <h5>{{tasks.name}} Already Has All users Available</h5>
       {% endif %}
     </div>
+  
+  </div>
+
+  <div class="task-details--edit-delete-wrapper">
+    <div class="task-details--edit">
+      <a href="{% url 'tasks_update' tasks.id %}">
+        <input class="task-details--edit-btn" type="button" value="EDIT"></input>
+      </a>
+    </div>
+    <div class="task-details--delete">
+      <a href="{% url 'tasks_delete' tasks.id %}">
+        <input class="task-details--delete-btn" type="button" value="DELETE"></input>
+      </a>
+    </div>
+  </div>
 
   </div>
 

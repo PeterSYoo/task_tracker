@@ -10,7 +10,7 @@
 <div class="task-list">
 
   <div class="task-list--individual">
-    <span class="task-list--individual-name">Individual Tasks</span>
+    <span class="task-list--individual-name">Created Tasks</span>
     {% for task in user_tasks %}
       <a href="{% url 'detail' task.id %}">
         <div class="task-list--card">
