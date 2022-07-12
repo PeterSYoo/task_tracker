@@ -15,10 +15,14 @@
 
     <div class="task-details--edit-delete-wrapper">
       <div class="task-details--edit">
-        <a href="{% url 'tasks_update' tasks.id %}">Edit</a>
+        <a href="{% url 'tasks_update' tasks.id %}">
+          <input class="task-details--edit-btn" type="button" value="EDIT"></input>
+        </a>
       </div>
       <div class="task-details--delete">
-        <a href="{% url 'tasks_delete' tasks.id %}">Delete</a>
+        <a href="{% url 'tasks_delete' tasks.id %}">
+          <input class="task-details--delete-btn" type="button" value="DELETE"></input>
+        </a>
       </div>
     </div>
   </div>

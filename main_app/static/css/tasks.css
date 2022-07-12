@@ -1,15 +1,3 @@
-.task-list--individual-name {
-  display: flex;
-  justify-content: center;
-  font-size: 1.4em;
-}
-
-.task-list--group-name {
-  display: flex;
-  justify-content: center;
-  font-size: 1.4em;
-}
-
 .task-list--card {
   background-color: #ffffff;
   padding: 25px 100px 25px 100px;
@@ -24,7 +12,7 @@
 
 .task-details--card {
   background-color: #ffffff;
-  padding: 25px 50px 25px 50px;
+  padding: 25px 100px 25px 100px;
   border-radius: 15px;
   border: 1px solid black;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
@@ -41,6 +29,26 @@
   padding-top: 25px;
 }
 
+.task-details--edit-btn {
+  padding: 10px 20px 10px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.task-details--delete-btn {
+  padding: 10px 20px 10px 20px;
+  background-color: #FF7E7E;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
 .task--new {
   background-color: #ffffff;
   padding: 25px 75px 25px 75px;
@@ -51,6 +59,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 25px;
 }
 
 .task--new-timer {
@@ -73,6 +82,26 @@
   cursor: pointer;
 }
 
+.timer-stop {
+  padding: 10px 20px 10px 20px;
+  background-color: #FF7E7E;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.timer-reset {
+  padding: 10px 20px 10px 20px;
+  background-color: #181818;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
 .task-list {
   display: grid;
   grid-template-columns: auto auto;
@@ -86,6 +115,20 @@
   grid-area: individual;
 }
 
+.task-list--individual-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4em;
+  padding-bottom: 15px;
+}
+
 .task-list--group {
   grid-area: group;
+}
+
+.task-list--group-name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.4em;
+  padding-bottom: 15px;
 }
