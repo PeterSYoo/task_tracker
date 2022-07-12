@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load users_extras %}
 {% load static %}
 
 {% block extrahead %}
@@ -9,6 +10,7 @@
 <h1>Task Details</h1>
 
 <div class="task-details">
+
   <div class="task-details--card">
     <span class="task-details--card-name">Name: {{ tasks.name }}</span><br>
     <span class="task-details--card-description">Description: {{ tasks.description }}</span>
@@ -25,6 +27,47 @@
         </a>
       </div>
     </div>
+    <br>
+    <div class="task-details--user">
+      User: {{ tasks.user }}
+    </div>
+    <br>
+    <div class="task-details--users">
+      Users:
+      {% for username in users %}
+        {{ username }}
+      {% endfor %}
+    </div>
+    <div class="task-details--users">
+      All users:
+      {% for username in user %}
+        {{ username }}
+      {% endfor %}
+    </div>
+
+    <div class="col s6">
+      <h3>Available Users</h3>
+      {% if add_users.count %}
+        {% for users in add_users.all %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">
+                {{ users }}
+              </span>
+            </div>
+            <div class="card-action">
+              <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <h5>{{tasks.name}} Already Has All users Available</h5>
+      {% endif %}
+    </div>
+
   </div>
 
 </div>

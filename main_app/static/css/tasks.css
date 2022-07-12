@@ -84,7 +84,7 @@
 
 .timer-stop {
   padding: 10px 20px 10px 20px;
-  background-color: #FF7E7E;
+  background-color: #181818;
   border: 0;
   border-radius: 5px;
   color: #ffffff;
@@ -94,7 +94,7 @@
 
 .timer-reset {
   padding: 10px 20px 10px 20px;
-  background-color: #181818;
+  background-color: #FF7E7E;
   border: 0;
   border-radius: 5px;
   color: #ffffff;

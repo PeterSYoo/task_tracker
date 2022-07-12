@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Task
 
 # Create your views here.
@@ -22,7 +23,17 @@ def tasks_index(request):
 
 def tasks_detail(request, task_id):
   tasks = Task.objects.get(id=task_id)
-  return render(request, 'tasks/details.html', { 'tasks': tasks })
+  users = tasks.users.all()
+  user = User.objects.all()
+  users_task_doesnt_have = User.objects.exclude(id__in=tasks.users.all().values_list('id'))
+  # exclude objects in users query that have primary keys in this list [1, 4, 5, etc.]
+
+  return render(request, 'tasks/details.html', { 
+    'tasks': tasks,
+    'users': users,
+    'user': user,
+    'add_users': users_task_doesnt_have,
+    })
 
 def signup(request):
   error_message = ''
