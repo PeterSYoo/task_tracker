@@ -4,21 +4,22 @@
 }
 
 body {
-  background-color: #F0F5F7;
+  background: rgb(37,41,71);
+  background: linear-gradient(139deg, rgba(37,41,71,1) 0%, rgba(20,22,39,1) 100%);
   font-family: 'Inter', sans-serif;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 header {
-  background-color: white;
-  padding: 25px 35px 15px 35px;
+  padding: 25px 65px 15px 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 .header-logo {
@@ -29,10 +30,18 @@ header {
 .header-nav {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  gap: 25px;
-  letter-spacing: -0.5px;
-  font-size: 1.15em;
+  align-items: center;
+  gap: 85px;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 200;
+}
+
+.header-nav--tasks-create {
+  background: #5E5BFF;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  padding: 10px 25px 10px 25px;
 }
 
 main {
@@ -48,7 +57,6 @@ main > h1 {
 }
 
 footer {
-  background-color: #ffffff;
   display: flex;
   justify-content: center;
   padding: 15px 0 50px 0;
@@ -56,21 +64,21 @@ footer {
 
 /* unvisited link */
 a:link {
-  color: #000000;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 /* mouse over link */
 a:hover {
-  color: #000000;
+  color: #FFFFFF;
 }
 
 /* selected link */
 a:active {
-  color: #000000;
+  color: #FFFFFF;
 }

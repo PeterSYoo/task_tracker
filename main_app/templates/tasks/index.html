@@ -2,36 +2,36 @@
 {% load static %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static "css/tasks.css" %}">
+<link rel="stylesheet" href="{% static "css/tasklist.css" %}">
 {% endblock %}
-
-<h1>Task List</h1>
 
 <div class="task-list">
 
   <div class="task-list--individual">
-    <span class="task-list--individual-name">Created Tasks</span>
+    <span class="task-list--individual-name">created tasks</span>
     {% for task in user_tasks %}
       <a href="{% url 'detail' task.id %}">
-        <div class="task-list--card">
-          <span class="task-list--card-name">{{ task.name }}</span><br>
-          <span class="task-list--card-description">Description: {{ task.description }}</span>
+        <div class="task-list--individual-card">
+          <span class="task-list--individual-icon"><img src="https://i.imgur.com/8Gs4RIR.png" alt=""></span>
+          <span class="task-list--individual-card-name">{{ task.name }}</span>
+          <span class="task-list--individual-card-dots"><img src="https://i.imgur.com/QzTEj8T.png" alt=""></span>
+          <span class="task-list--individual-card-description">Description: {{ task.description }}</span>
         </div>
       </a>
-      <br>
     {% endfor %} 
   </div>
 
   <div class="task-list--group">
-    <span class="task-list--group-name">Group Tasks</span>
+    <span class="task-list--group-name">group tasks</span>
     {% for task in users_tasks %}
       <a href="{% url 'detail' task.id %}">
-        <div class="task-list--card">
-          <span class="task-list--card-name">{{ task.name }}</span><br>
-          <span class="task-list--card-description">Description: {{ task.description }}</span>
+        <div class="task-list--group-card">
+          <span class="task-list--group-icon"><img src="https://i.imgur.com/DxQbRlv.png" alt=""></span>
+          <span class="task-list--group-card-name">{{ task.name }}</span>
+          <span class="task-list--individual-card-dots"><img src="https://i.imgur.com/QzTEj8T.png" alt=""></span>
+          <span class="task-list--group-card-description">Description: {{ task.description }}</span>
         </div>
       </a>
-      <br>
     {% endfor %} 
   </div>
 

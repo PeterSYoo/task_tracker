@@ -22,9 +22,11 @@ def home(request):
 def tasks_index(request):
   users_tasks = Task.objects.filter(users=request.user)
   user_tasks = Task.objects.filter(user=request.user)
+  calendar = Calendar()
   return render(request, 'tasks/index.html', { 
     'users_tasks': users_tasks,
     'user_tasks': user_tasks,
+    'calendar': calendar,
     })
 
 @login_required

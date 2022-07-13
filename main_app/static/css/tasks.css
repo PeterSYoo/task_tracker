@@ -54,25 +54,6 @@
   cursor: pointer;
 }
 
-.task--new {
-  background-color: #ffffff;
-  padding: 25px 75px 25px 75px;
-  border-radius: 15px;
-  border: 1px solid black;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 25px;
-  margin-top: 150px;
-  justify-content: center;
-}
-
-.task--new-timer {
-  font-size: 2em;
-}
-
 .dots-vertical {
   margin-left: 10px;
   margin-right: 15px;

@@ -1,0 +1,98 @@
+.task-list {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "individual"
+    "group";
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 43px 65px 0 65px;
+}
+
+.task-list--individual {
+  grid-area: individual;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list--individual-name {
+  display: flex;
+  font-size: 20px;
+  padding-bottom: 15px;
+  color: #515573;
+  margin-bottom: -10px;
+}
+
+.task-list--group {
+  grid-area: group;
+}
+
+.task-list--group-name {
+  display: flex;
+  font-size: 1.4em;
+  padding-bottom: 15px;
+  color: #515573;
+  margin-bottom: -10px;
+}
+
+.task-list--individual-card {
+  background: rgb(94,91,255);
+  background: linear-gradient(90deg, rgba(94,91,255,1) 0%, rgba(27,29,47,1) 64%);
+  border-radius: 0 15px 15px 0;
+  padding: 20px 50px 15px 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.task-list--individual-icon {
+  background-color: #000427;
+  padding: 23px 32px 15px 32px;
+  margin: -49px 0 -45px -45px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.task-list--individual-icon > img {
+  max-height: 20px;
+  margin-bottom: 0;
+}
+
+.task-list--individual-card-name {
+  width: 200px;
+  margin-left: 50px;
+}
+
+.task-list--individual-card-dots {
+  width: 100px;
+  margin-bottom: -6px;
+}
+
+.task-list--group-card {
+  background: rgb(143,91,255);
+  background: linear-gradient(90deg, rgba(143,91,255,1) 0%, rgba(33,21,39,1) 64%);
+  border-radius: 0 15px 15px 0;
+  padding: 20px 50px 15px 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.task-list--group-icon {
+  background-color: #000427;
+  padding: 23px 32px 15px 32px;
+  margin: -49px 0 -45px -45px;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.task-list--group-icon > img {
+  max-height: 20px;
+  margin-bottom: 0;
+}
+
+.task-list--group-card-name {
+  width: 200px;
+  margin-left: 50px;
+}
