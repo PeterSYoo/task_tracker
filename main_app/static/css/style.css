@@ -39,7 +39,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
   padding-bottom: 150px;
   flex: 1 0 auto;
 }
