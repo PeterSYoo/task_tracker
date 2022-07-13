@@ -13,7 +13,12 @@
 {% endif %}
 <!-- Leaving the action empty makes the form post to the same url used to display it -->
 <form action="" method="post">
+    <!-- Django requires the following for security purposes -->
+  {% csrf_token %}
   <div class="task--new">
+    {% if object %}
+    &nbsp;
+    {% else %}
     <div class="task--new-timer">
       00:00:00
     </div> 
@@ -21,22 +26,23 @@
       <img class="dots-vertical" src="https://i.imgur.com/xinjA2G.png"> 
     </div>
     <div class="task--new-start">
-      <input class="timer-start" type="button" value="START"></input>
+      <input class="timer-start" type="button" value="START" />
     </div>
     <div class="task--new-stop">
-      <input class="timer-stop" type="button" value="PAUSE"></input>
+      <input class="timer-stop" type="submit" value="STOP" />
     </div>
     <div class="task--new-reset">
-      <input class="timer-reset" type="button" value="RESET"></input>
+      <input class="timer-reset" type="button" value="RESET" />
     </div>
   </div>
-  <!-- Django requires the following for security purposes -->
-  {% csrf_token %}
+  {% endif %}
   <table>
     <!-- Render the inputs inside of <tr>s & <td>s -->
     {{ form.as_table }}
   </table>
-  <br>
-  <input type="submit" value="Submit!" class="btn" />
+  {% if object %}
+  <input type="submit" value="SUBMIT" class="btn" />
+  {% else %}
+  {% endif %}
 </form>
 {% endblock %}

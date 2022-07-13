@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import Task
+from .forms import Calendar
 
 # Create your views here.
 def home(request):
@@ -28,13 +29,26 @@ def tasks_detail(request, task_id):
   user = User.objects.all()
   users_task_doesnt_have = User.objects.exclude(id__in=tasks.users.all().values_list('id'))
   # exclude objects in users query that have primary keys in this list [1, 4, 5, etc.]
-
+  calendar = Calendar()
   return render(request, 'tasks/details.html', { 
     'tasks': tasks,
     'users': users,
     'user': user,
+    'calendar': calendar,
     'add_users': users_task_doesnt_have,
     })
+
+def add_date(request, task_id):
+  # create the ModelForm using the data in request.POST
+  form = Calendar(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the task_id assigned
+    new_date = form.save(commit=False)
+    new_date.task_id = task_id
+    new_date.save()
+  return redirect('detail', task_id=task_id)
 
 @login_required
 def assoc_users(request, task_id, users_id):

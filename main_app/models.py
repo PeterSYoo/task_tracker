@@ -17,6 +17,19 @@ class Task(models.Model):
   def get_absolute_url(self):
     return reverse('detail', kwargs={'task_id': self.id})
 
+  def date_for_today(self):
+    return self.calendar_set.filter(date=date.today()).count()
+
+class Calendar(models.Model):
+  date = models.DateField('date')
+  task = models.ForeignKey(Task, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"{self.date}"
+
+  class Meta:
+    ordering = ['-date']
+
 class Photo(models.Model):
   url = models.CharField(max_length=200)
   task = models.ForeignKey(Task, on_delete=models.CASCADE)
