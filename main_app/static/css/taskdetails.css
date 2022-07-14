@@ -1,0 +1,248 @@
+.task-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  padding: 45px 142px 0 142px;
+}
+
+.task-details--name-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 400;
+  font-size: 54px;
+}
+
+.task-details--createdby {
+  display: flex;
+  font-weight: 200;
+  font-size: 18px;
+  margin: -10px 0 25px 5px;
+}
+
+.task-details--description {
+  display: flex;
+  background-color: #37397d;
+  padding: 25px 30px 25px 30px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 50px;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.task-details--grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 70px;
+  grid-row-gap: 0px;
+  grid-template-areas: 
+    "date members add-members";
+  margin-bottom: 50px;
+}
+
+.task-details--grid-date {
+  grid-area: date;
+}
+
+.task-details--grid-date label {
+  color: #ffffff !important;
+}
+
+.task-details--grid-date label.active {
+  color: #ffffff !important;
+}
+
+.task-details--grid-date label.inactive {
+  color: #ffffff !important;
+}
+
+.task-details--grid-date input[type=text]:focus + label {
+  color: #ffffff !important;
+}
+
+.task-details--grid-date input[type=text]:focus {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task-details--grid-date input[type=text].valid {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task-details--grid-date input[type=text].invalid {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task-details--grid-date .prefix.active {
+  color: #ffffff !important;
+}
+
+.calendar-add-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 10px 15px 0;
+}
+
+.calendar-add-btn {
+  padding: 10px 20px 10px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.task-details--grid-date-list {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 5px 15px;
+}
+  
+.task-details--grid-members {
+  grid-area: members;
+}
+
+.task-members {
+  margin: 0 0 10px 10px;
+  font-weight: 200;
+}
+
+.task-details--grid-members-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #37397d;
+  padding: 25px 30px 25px 30px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.task-details--grid-members-names-wrapper {
+}
+
+.task-details--grid-members-names {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+  
+.task-details--grid-addmembers {
+  grid-area: add-members;
+}
+
+.add-task-members {
+  margin: 0 0 10px 10px;
+  font-weight: 200;
+}
+
+.task-details--grid-addmembers-names-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #37397d;
+  padding: 25px 30px 25px 30px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.task-details--grid-addmembers-names-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-details--grid-addmembers-names {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.users-names {
+  min-width: 100px;
+}
+
+.vertical-dots {
+  max-height: 15px;
+}
+
+.add-btn {
+  margin-left: 50px;
+  padding: 4px 20px 4px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.task-details--photos {
+  display: flex;
+  flex-direction: column;
+  background-color: #37397d;
+  padding: 25px 30px 25px 30px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.task-details--photo-gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.choose-file {
+  padding: 14px 20px 14px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.upload-btn {
+  padding: 14px 20px 14px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.task-details--edit-delete-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: flex-end;
+  margin: 25px 15px 0 0;
+}
+
+.task-details--edit-btn {
+  padding: 14px 20px 14px 20px;
+  background-color: #00B2FF;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.task-details--delete-btn {
+  padding: 14px 20px 14px 20px;
+  background-color: #FF7E7E;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}

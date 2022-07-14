@@ -4,114 +4,125 @@
 {% load static %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static "css/tasks.css" %}">
+<link rel="stylesheet" href="{% static "css/taskdetails.css" %}">
 {% endblock %}
 
-<h1>Task Details</h1>
-
 <div class="task-details">
-
-  <div class="task-details--card">
-    <span class="task-details--card-name">Name: {{ tasks.name }}</span><br>
-    <span class="task-details--card-description">Description: {{ tasks.description }}</span>
-    <form action="{% url 'add_date' tasks.id %}" method="post">
-      {% csrf_token %} {{ calendar.as_p }}
-      <input type="submit" class="btn" value="Add Date" />
-    </form>
-    <table class="striped">
-      <thead>
-        <tr>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for calendar in tasks.calendar_set.all %}
-        <tr>
-          <td>{{ calendar.date }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-
-  <div class="row">
-    <!-- Insert photo markup below this comment -->
-    {% for photo in tasks.photo_set.all %}
-      <img class="responsive-img card-panel" src="{{photo.url}}">
-    {% empty %}
-      <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-    {% endfor %}
-
-    <form
-      action="{% url 'add_photo' tasks.id %}"
-      enctype="multipart/form-data"
-      method="POST"
-      class="card-panel"
-    >
-      {% csrf_token %}
-      <input type="file" name="photo-file" />
-      <br /><br />
-      <input type="submit" class="btn" value="Upload Photo" />
-    </form>
+  <div class="task-details--name-wrapper">
+    <div class="task-details--taskname">
+      <span>{{ tasks.name }}</span>
+    </div>
+    <div class="task-details--timer">
+      <span>00:00:00</span>
+    </div>
+  </div>
+  <div class="task-details--createdby">
+    <span>Created by: {{ tasks.user }}</span>
+  </div>
+  <div class="task-details--description">
+    Task Details: {{ tasks.description }}
   </div>
 
-  <div class="row">
-      <div class="col s6">
-        <h5>Group task users:</h5>
-        {% if tasks.users.count %} {% for users in tasks.users.all %}
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">
-              {{ users }}
-            </span>
-          </div>
+  <div class="task-details--grid-wrapper">
+
+    <!-- Display date column -->
+    <div class="task-details--grid-date">
+      <form action="{% url 'add_date' tasks.id %}" method="post">
+        {% csrf_token %} {{ calendar.as_p }}
+        <div class="calendar-add-btn-wrapper">
+          <input type="submit" class="calendar-add-btn" value="ADD DATE" />
         </div>
-        {% endfor %} {% else %}
-        <h5>No Users :(</h5>
-        {% endif %}
+      </form>
+      {% for calendar in tasks.calendar_set.all %}
+      <div class="task-details--grid-date-list">
+        {{ calendar.date }}
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Display members column -->
+    <div class="task-details--grid-members">
+      <div class="task-members">
+        Task members:
+      </div>
+      <div class="task-details--grid-members-wrapper">
+
+      <div class="task-details--grid-members-names-wrapper">
+          {% if tasks.users.count %} {% for users in tasks.users.all %}
+          <div class="task-details--grid-members-names">
+            {{ users }}
+          </div>
+          {% endfor %} {% else %}
+            No Users :(
+          {% endif %}
       </div>
 
-    <div class="col s6">
-      <h5>Add users to task:</h5>
-      {% if add_users.count %}
-        {% for users in add_users.all %}
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title">
-                {{ users }}
-              </span>
-            </div>
-            <div class="card-action">
-              <form action="{% url 'assoc_users' tasks.id users.id %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn">Add</button>
-              </form>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        <h5>{{tasks.name}} Already Has All users Available</h5>
-      {% endif %}
+      </div>
     </div>
-  
+
+    <!-- Add members column -->
+    <div class="task-details--grid-addmembers">
+      <div class="add-task-members">
+        Add task members:
+      </div>
+      <div class="task-details--grid-addmembers-wrapper">
+
+        <div class="task-details--grid-addmembers-names-wrapper">
+          {% if add_users.count %}
+          {% for users in add_users.all %}
+          <div class="task-details--grid-addmembers-names">
+            <span class="users-names">{{ users }}</span>
+            <img class="vertical-dots" src="https://i.imgur.com/QzTEj8T.png" alt="">
+            <form action="{% url 'assoc_users' tasks.id users.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="add-btn">ADD</button>
+            </form><br>
+            
+          </div>
+          {% endfor %}
+          {% else %}
+          {{tasks.name}} Already Has All users Available
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="task-details--photos">
+    <div class="task-details--photo-gallery">
+    {% for photo in tasks.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{photo.url}}" width="400">
+    {% empty %}
+    No Photos Uploaded
+    {% endfor %}
+    </div>
+
+    <form
+    action="{% url 'add_photo' tasks.id %}"
+    enctype="multipart/form-data"
+    method="POST"
+    class="card-panel"
+    >
+    {% csrf_token %}
+    <input type="file" name="photo-file" />
+    <br /><br />
+    <input type="submit" class="upload-btn" value="UPLOAD PHOTO" />
+    </form>
   </div>
 
   <div class="task-details--edit-delete-wrapper">
-    <div class="task-details--edit">
-      <a href="{% url 'tasks_update' tasks.id %}">
-        <input class="task-details--edit-btn" type="button" value="EDIT"></input>
-      </a>
-    </div>
-    <div class="task-details--delete">
-      <a href="{% url 'tasks_delete' tasks.id %}">
-        <input class="task-details--delete-btn" type="button" value="DELETE"></input>
-      </a>
-    </div>
-  </div>
-
+    <a href="{% url 'tasks_update' tasks.id %}">
+    <input class="task-details--edit-btn" type="button" value="EDIT"></input>
+    </a>
+    
+    <a href="{% url 'tasks_delete' tasks.id %}">
+    <input class="task-details--delete-btn" type="button" value="DELETE"></input>
+    </a>
   </div>
 
 </div>
+
 
 <script>
   const dateEl = document.getElementById('id_date');

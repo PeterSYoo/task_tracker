@@ -4,8 +4,8 @@
 }
 
 body {
-  background: rgb(37,41,71);
-  background: linear-gradient(139deg, rgba(37,41,71,1) 0%, rgba(20,22,39,1) 100%);
+  background: rgb(20,22,39);
+  background: linear-gradient(142deg, rgba(20,22,39,1) 0%, rgba(46,51,85,1) 64%);
   font-family: 'Inter', sans-serif;
   color: rgb(255, 255, 255);
   min-height: 100vh;
@@ -54,6 +54,22 @@ main {
 
 main > h1 {
   padding-bottom: 5px;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.home-subtext {
+  display: flex;
+  justify-content: flex-end;
+  margin: -35px 0 0 420px;
+  font-weight: 200;
+  font-size: 18px;
 }
 
 footer {

@@ -5,7 +5,6 @@
   grid-template-areas:
     "individual"
     "group";
-  min-height: 100vh;
   min-width: 100vw;
   padding: 43px 65px 0 65px;
 }
@@ -14,6 +13,7 @@
   grid-area: individual;
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .task-list--individual-name {
@@ -24,21 +24,9 @@
   margin-bottom: -10px;
 }
 
-.task-list--group {
-  grid-area: group;
-}
-
-.task-list--group-name {
-  display: flex;
-  font-size: 1.4em;
-  padding-bottom: 15px;
-  color: #515573;
-  margin-bottom: -10px;
-}
-
 .task-list--individual-card {
   background: rgb(94,91,255);
-  background: linear-gradient(90deg, rgba(94,91,255,1) 0%, rgba(27,29,47,1) 64%);
+  background: linear-gradient(90deg, rgba(94,91,255,1) 0%, rgb(38, 41, 67) 64%);
   border-radius: 0 15px 15px 0;
   padding: 20px 50px 15px 50px;
   display: flex;
@@ -69,9 +57,22 @@
   margin-bottom: -6px;
 }
 
+.task-list--group {
+  grid-area: group;
+  margin-bottom: 50px;
+}
+
+.task-list--group-name {
+  display: flex;
+  font-size: 1.4em;
+  padding-bottom: 15px;
+  color: #515573;
+  margin-bottom: -10px;
+}
+
 .task-list--group-card {
   background: rgb(143,91,255);
-  background: linear-gradient(90deg, rgba(143,91,255,1) 0%, rgba(33,21,39,1) 64%);
+  background: linear-gradient(90deg, rgba(143,91,255,1) 0%, rgba(50,32,59,1) 64%);
   border-radius: 0 15px 15px 0;
   padding: 20px 50px 15px 50px;
   display: flex;

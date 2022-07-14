@@ -1,14 +1,14 @@
 .task--new {
-  background-color: #2C2D63;
+  background-color: #37397d;
   padding: 25px 75px 25px 75px;
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
-  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 25px;
   margin-top: 150px;
+  margin-bottom: 50px;
   justify-content: center;
 }
 
@@ -53,11 +53,48 @@
 }
 
 .task--new-form {
-  background-color: #2C2D63;
+  background-color: #37397d;
   padding: 25px 75px 25px 75px;
   border-radius: 15px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
   margin-bottom: 50px;
   gap: 25px;
-  margin-top: 150px;
+}
+
+.task--new-form label {
+  color: #ffffff !important;
+}
+
+.task--new-form label.active {
+  color: #ffffff !important;
+}
+
+.task--new-form label.inactive {
+  color: #ffffff !important;
+}
+
+.task--new-form input[type=text]:focus + label {
+  color: #ffffff !important;
+}
+
+.task--new-form input[type=text]:focus {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task--new-form input[type=text].valid {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task--new-form input[type=text].invalid {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+  color: #ffffff;
+}
+
+.task--new-form .prefix.active {
+  color: #ffffff !important;
 }
