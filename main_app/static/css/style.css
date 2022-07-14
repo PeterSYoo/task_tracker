@@ -48,6 +48,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 150px;
   padding-bottom: 150px;
   flex: 1 0 auto;
 }
@@ -61,7 +62,7 @@ main > h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 30vh;
 }
 
 .home-subtext {

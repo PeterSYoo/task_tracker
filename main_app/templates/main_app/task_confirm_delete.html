@@ -1,14 +1,32 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Delete Task</h1>
 
-<h4>
-  Are you sure you want to delete
-  <span class="teal-text">{{ object.name }}</span>?
-</h4>
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/taskdelete.css" %}">
+{% endblock %}
+
+<div class="task-delete--wrapper">
+  <div class="task-delete--text">
+    <span class="delete-task-title">
+      Delete Task
+    </span>
+    <span class="are-you-sure">
+      Are you sure you want to delete {{ object.name }}?
+    </span>
+  </div>
+
+  
 
 <form action="" method="POST">
   {% csrf_token %}
-  <input type="submit" value="Yes - Delete!" class="btn" />
-  <a href="{% url 'detail' task.id %}">Cancel</a>
+  <div class="delete-cancel--wrapper">
+    <input type="submit" value="Yes - Delete!" class="delete-btn" />
+    <a href="{% url 'detail' task.id %}">
+      <input type="button" value="CANCEL" class="cancel-btn" />
+    </a>
+  </div>
 </form>
+
+</div>
 {% endblock %}

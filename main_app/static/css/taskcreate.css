@@ -1,3 +1,8 @@
+.edit-task {
+  margin: 0 0 -20px -550px;
+  font-size: 30px;
+}
+
 .task--new {
   background-color: #37397d;
   padding: 25px 75px 25px 75px;
@@ -7,7 +12,6 @@
   flex-direction: row;
   align-items: center;
   gap: 25px;
-  margin-top: 150px;
   margin-bottom: 50px;
   justify-content: center;
 }

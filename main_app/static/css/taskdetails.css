@@ -3,6 +3,7 @@
   flex-direction: column;
   min-width: 100vw;
   padding: 45px 142px 0 142px;
+  margin-top: -150px;
 }
 
 .task-details--name-wrapper {
