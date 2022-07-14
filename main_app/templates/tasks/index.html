@@ -8,7 +8,10 @@
 <div class="task-list">
 
   <div class="task-list--individual">
+    {% if user_tasks %}
     <span class="task-list--individual-name">created tasks</span>
+    {% else %}
+    {% endif %}
     {% for task in user_tasks %}
       <a href="{% url 'detail' task.id %}">
         <div class="task-list--individual-card">
@@ -22,7 +25,10 @@
   </div>
 
   <div class="task-list--group">
+    {% if users_tasks %}
     <span class="task-list--group-name">group tasks</span>
+    {% else %}
+    {% endif %}
     {% for task in users_tasks %}
       <a href="{% url 'detail' task.id %}">
         <div class="task-list--group-card">
