@@ -81,7 +81,7 @@
           </div>
           {% endfor %}
           {% else %}
-          {{tasks.name}} Already Has All users Available
+          No users available to add
           {% endif %}
         </div>
 
@@ -105,7 +105,7 @@
     class="card-panel"
     >
     {% csrf_token %}
-    <input type="file" name="photo-file" />
+    <input type="file" class="choose-file" name="photo-file" />
     <br /><br />
     <input type="submit" class="upload-btn" value="UPLOAD PHOTO" />
     </form>
